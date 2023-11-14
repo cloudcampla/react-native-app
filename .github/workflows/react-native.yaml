@@ -11,13 +11,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - run: |
-        java --version
-        node --version
-        npm --version
-        gradle --version
-        docker 
-
+    - name: Init
+      run: |
+        npm install
+        
     - name: build
       run: |
         cd android
