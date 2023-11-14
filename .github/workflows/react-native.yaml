@@ -1,0 +1,19 @@
+on:
+  push:
+defaults:
+  run:
+    shell: bash
+  
+jobs:
+  react-native:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - run: |
+        ls
+        java --version
+        nodejs --version
+        npm --version
+
