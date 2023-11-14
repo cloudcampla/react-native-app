@@ -12,8 +12,15 @@ jobs:
       uses: actions/checkout@v4
 
     - run: |
-        ls
         java --version
-        nodejs --version
+        node --version
         npm --version
+        gradle --version
+        docker 
+
+    - name: build
+      run: |
+        cd android
+        ./gradlew build
+
 
