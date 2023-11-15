@@ -14,11 +14,18 @@ jobs:
     - name: Init
       run: |
         npm install
-        
+        npm install appcenter
+
     - name: build
       run: |
         cd android
+        sed -i 's/CHANGE_ME/${{ secrets.APP_CENTER_TOKEN }}/g' app/src/main/assets/appcenter-config.json
         chmod +x gradlew
         ./gradlew build
+        find . -name '*.apk'
 
-
+    - name: deploy
+      run: |
+         sed -i 's/CHANGE_ME/${{ secrets.APP_CENTER_TOKEN }}/g' app/src/main/assets/appcenter-config.json
+         cat app\src\main\assets\appcenter-config.json
+         #distribute release --app drdagerm/cloudcamp --file 
